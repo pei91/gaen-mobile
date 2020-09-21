@@ -85,7 +85,7 @@ export const SymptomLogProvider: FunctionComponent = ({ children }) => {
 export const useSymptomLogContext = (): SymptomLogState => {
   const symptomLogContext = useContext(SymptomLogContext)
   if (symptomLogContext === undefined) {
-    throw new Error("ConfigurationContext must be used with a provider")
+    throw new Error("SymptomLogContext must be used with a provider")
   }
   return symptomLogContext
 }

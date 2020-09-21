@@ -14,7 +14,13 @@ const fetchLogEntries = (): Promise<SymptomLogEntry[]> => {
       id: 1,
       symptoms: [],
       healthAssessment: HealthAssessment.NotAtRisk,
-      date: new Date().getTime() / 1000,
+      date: 1600610400000,
+    },
+    {
+      id: 2,
+      symptoms: ["Cough", "Fever"],
+      healthAssessment: HealthAssessment.AtRisk,
+      date: 1600610400000,
     },
   ])
 }

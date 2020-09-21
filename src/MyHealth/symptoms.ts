@@ -5,7 +5,24 @@ export enum HealthAssessment {
   NotAtRisk,
 }
 
+export enum Feeling {
+  Great,
+  NotGreat,
+}
+
 export type Symptom = string
+
+export type LogEntriesForDay = {
+  dayStatus: Feeling
+  date: Posix
+  entriesForDay: SymptomLogEntry[]
+}
+
+export type DailyLogEntries = {
+  generalFeeling: Feeling
+  date: Posix
+  entries: SymptomLogEntry[]
+}
 
 export type SymptomLogEntry = {
   id: number

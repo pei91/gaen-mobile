@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigation } from "@react-navigation/native"
 
 import { SelfScreenerStackScreens, useStatusBarEffect } from "../navigation"
-import { Button, GlobalText } from "../components"
+import { Button, GlobalText, StatusBar } from "../components"
 
 import { EmergencySymptom } from "./selfScreener"
 import { useSelfScreenerContext } from "../SelfScreenerContext"
@@ -16,6 +16,7 @@ const EmergencySymptomsQuestions: FunctionComponent = () => {
   useStatusBarEffect("dark-content", Colors.secondary10)
   const { t } = useTranslation()
   const navigation = useNavigation()
+
   const { emergencySymptoms, updateSymptoms } = useSelfScreenerContext()
   const {
     CHEST_PAIN,
@@ -47,13 +48,16 @@ const EmergencySymptomsQuestions: FunctionComponent = () => {
 
   return (
     <View style={style.container}>
-      <GlobalText style={style.headerText}>
-        {t("self_screener.emergency_symptoms.are_you_experiencing")}
-      </GlobalText>
-      <GlobalText style={style.subheaderText}>
-        {t("self_screener.emergency_symptoms.select_any")}
-      </GlobalText>
-      <ScrollView contentContainerStyle={style.contentContainer}>
+      <ScrollView
+        contentContainerStyle={style.mainContentContainer}
+        alwaysBounceVertical={false}
+      >
+        <GlobalText style={style.headerText}>
+          {t("self_screener.emergency_symptoms.are_you_experiencing")}
+        </GlobalText>
+        <GlobalText style={style.subheaderText}>
+          {t("self_screener.emergency_symptoms.select_any")}
+        </GlobalText>
         <SymptomCheckbox
           label={emergencySymptomToString(CHEST_PAIN)}
           onPress={() => updateSymptoms(CHEST_PAIN)}
@@ -92,11 +96,11 @@ const style = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: Colors.secondary10,
-    padding: Spacing.xLarge,
     justifyContent: "center",
   },
-  contentContainer: {
+  mainContentContainer: {
     flexGrow: 1,
+    padding: Spacing.large,
   },
   headerText: {
     ...Typography.header1,
@@ -109,7 +113,9 @@ const style = StyleSheet.create({
   },
   buttonContainer: {
     width: "100%",
-    paddingVertical: Spacing.medium,
+    paddingTop: Spacing.medium,
+    paddingBottom: Spacing.huge,
+    paddingHorizontal: Spacing.medium,
     backgroundColor: Colors.secondary10,
   },
   button: {

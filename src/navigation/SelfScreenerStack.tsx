@@ -90,7 +90,7 @@ const navigationBarOptions: StackNavigationOptions = {
 const SelfAssessmentStack: FunctionComponent = () => {
   return (
     <SelfScreenerProvider>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={navigationBarOptions}>
         <Stack.Screen
           name={SelfScreenerStackScreens.SelfScreenerIntro}
           component={SelfScreenerIntro}
@@ -99,51 +99,30 @@ const SelfAssessmentStack: FunctionComponent = () => {
         <Stack.Screen
           name={SelfScreenerStackScreens.EmergencySymptomsQuestions}
           component={EmergencySymptomsQuestions}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.NoEmergencySymptoms}
           component={NoEmergencySymptoms}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.CallEmergencyServices}
           component={CallEmergencyServices}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.GeneralSymptoms}
           component={GeneralSymptoms}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.GeneralSymptomsSummary}
           component={GeneralSymptomsSummary}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.UnderlyingConditions}
           component={UnderlyingConditions}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.AgeRange}
           component={AgeRangeQuestion}
-          options={{
-            ...navigationBarOptions,
-          }}
         />
         <Stack.Screen
           name={SelfScreenerStackScreens.Summary}

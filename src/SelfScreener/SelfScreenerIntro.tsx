@@ -97,6 +97,8 @@ const SelfScreenerIntro: FunctionComponent = () => {
               <SvgXml
                 xml={Icons.EmergencyPlusInCircle}
                 fill={Colors.danger100}
+                width={Iconography.xxSmall}
+                height={Iconography.xxSmall}
               />
             </View>
             <GlobalText style={style.bulletText}>

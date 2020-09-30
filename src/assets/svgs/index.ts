@@ -3,6 +3,7 @@ import AnonymizedData from "./anonymizedData"
 import AnonymizedDataInverted from "./anonymizedDataInverted"
 import Arrow from "./arrow"
 import ArrowLeft from "./arrowLeft"
+import AsteriskInCircle from "./asteriskInCircle"
 import BackArrow from "./backArrow"
 import BarGraph from "./barGraph"
 import Bell from "./bell"
@@ -55,6 +56,7 @@ export const Icons = {
   AnonymizedDataInverted,
   Arrow,
   ArrowLeft,
+  AsteriskInCircle,
   BackArrow,
   BarGraph,
   Bell,

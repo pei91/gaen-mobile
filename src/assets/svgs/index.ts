@@ -18,6 +18,7 @@ import ChevronRight from "./chevronRight"
 import ChevronUp from "./chevronUp"
 import Close from "./close"
 import Document from "./document"
+import EmergencyPlusInCircle from "./emergencyPlusInCircle"
 import Export from "./export"
 import ExposureIcon from "./exposureIcon"
 import Gear from "./gear"
@@ -69,6 +70,7 @@ export const Icons = {
   ChevronUp,
   Close,
   Document,
+  EmergencyPlusInCircle,
   Export,
   ExposureIcon,
   Gear,

@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from "react"
 import { createStackNavigator } from "@react-navigation/stack"
-import { SelfScreenerStackScreens } from "."
+
+import { SelfScreenerProvider } from "../SelfScreenerContext"
+import { SelfScreenerStackScreens } from "./index"
+
 import SelfScreenerIntro from "../SelfScreener/SelfScreenerIntro"
 import EmergencySymptomsQuestions from "../SelfScreener/EmergencySymptomsQuestions"
 import NoEmergencySymptoms from "../SelfScreener/NoEmergencySymptoms"
@@ -10,9 +13,9 @@ import GeneralSymptomsSummary from "../SelfScreener/GeneralSymptomsSummary"
 import UnderlyingConditions from "../SelfScreener/UnderlyingConditions"
 import AgeRangeQuestion from "../SelfScreener/AgeRangeQuestion"
 import Summary from "../SelfScreener/Summary"
-import { SelfScreenerProvider } from "../SelfScreenerContext"
 
 const Stack = createStackNavigator()
+
 const SelfAssessmentStack: FunctionComponent = () => {
   return (
     <SelfScreenerProvider>

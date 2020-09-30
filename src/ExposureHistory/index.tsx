@@ -23,7 +23,8 @@ const ExposureHistoryStackScreen: FunctionComponent = () => {
     }, [refreshExposureInfo]),
   )
 
-  const exposures = toExposureList(exposureInfo)
+  /* const exposures = toExposureList(exposureInfo) */
+  const exposures = [{ id: 1, date: 1 }]
 
   return (
     <History

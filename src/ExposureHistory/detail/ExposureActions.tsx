@@ -4,11 +4,11 @@ import { useNavigation } from "@react-navigation/native"
 import { useTranslation } from "react-i18next"
 import { SvgXml } from "react-native-svg"
 
-import { Stacks } from "../../navigation"
+import { ModalStackScreens, Stacks } from "../../navigation"
 import { GlobalText, Button } from "../../components"
 import { useConnectionStatus } from "../../hooks/useConnectionStatus"
 
-import { Colors, Iconography, Spacing, Typography } from "../../styles"
+import { Buttons, Colors, Iconography, Spacing, Typography } from "../../styles"
 import { Icons } from "../../assets"
 import { useConfigurationContext } from "../../ConfigurationContext"
 
@@ -36,9 +36,10 @@ const ExposureActions: FunctionComponent = () => {
         {t("exposure_history.exposure_detail.ha_guidance_header")}
       </GlobalText>
       <>
-        {displayCallbackForm && (
-          <RequestCallBackActions healthAuthorityName={healthAuthorityName} />
-        )}
+        {displayCallbackForm ||
+          (true && (
+            <RequestCallBackActions healthAuthorityName={healthAuthorityName} />
+          ))}
         <GlobalText style={style.bottomHeaderText}>
           {t("exposure_history.exposure_detail.general_guidance", {
             healthAuthorityName,
@@ -62,19 +63,24 @@ const ExposureActions: FunctionComponent = () => {
             text={t("exposure_history.exposure_detail.wash_your_hands")}
           />
         </View>
-        {displaySelfScreener && (
-          <Button
-            onPress={() => navigation.navigate(Stacks.SelfScreener)}
-            label={t(
-              "exposure_history.exposure_detail.personalize_my_guidance",
-            )}
-            customButtonStyle={style.personalizeGuidanceButton}
-            customButtonInnerStyle={style.personalizeGuidanceButtonGradient}
-            customTextStyle={style.personalizeGuidanceButtonText}
-            hasRightArrow
-            outlined
-          />
-        )}
+        {displaySelfScreener ||
+          (true && (
+            <Button
+              onPress={() =>
+                navigation.navigate(Stacks.Modal, {
+                  screen: ModalStackScreens.SelfScreener,
+                })
+              }
+              label={t(
+                "exposure_history.exposure_detail.personalize_my_guidance",
+              )}
+              customButtonStyle={style.personalizeGuidanceButton}
+              customButtonInnerStyle={style.personalizeGuidanceButtonInner}
+              customTextStyle={style.personalizeGuidanceButtonText}
+              hasRightArrow
+              outlined
+            />
+          ))}
         {displayNextStepsLink && (
           <View style={style.buttonContainer}>
             <Button
@@ -118,7 +124,7 @@ const RequestCallBackActions: FunctionComponent<RequestCallBackActionsProps> = (
       </GlobalText>
       <Button
         customButtonStyle={style.requestCallbackButton}
-        customButtonInnerStyle={style.requestCallbackButtonGradient}
+        customButtonInnerStyle={style.requestCallbackButtonInner}
         onPress={navigateToCallbackForm}
         label={t("exposure_history.exposure_detail.speak_with_contact_tracer")}
         hasRightArrow
@@ -193,7 +199,8 @@ const style = StyleSheet.create({
     alignSelf: "center",
     paddingVertical: Spacing.small,
   },
-  requestCallbackButtonGradient: {
+  requestCallbackButtonInner: {
+    ...Buttons.medium,
     width: "100%",
   },
   personalizeGuidanceButton: {
@@ -206,7 +213,8 @@ const style = StyleSheet.create({
     ...Typography.buttonPrimary,
     color: Colors.primary110,
   },
-  personalizeGuidanceButtonGradient: {
+  personalizeGuidanceButtonInner: {
+    ...Buttons.medium,
     width: "100%",
     justifyContent: "space-between",
   },

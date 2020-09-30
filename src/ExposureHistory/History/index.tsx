@@ -80,7 +80,7 @@ const History: FunctionComponent<HistoryProps> = ({
           </View>
         </View>
         <View style={style.listContainer}>
-          {showExposureHistory ? (
+          {showExposureHistory || true ? (
             <ExposureList exposures={exposures} />
           ) : (
             <NoExposures />

@@ -182,11 +182,10 @@ const style = StyleSheet.create({
     marginHorizontal: Spacing.xLarge,
   },
   checkboxText: {
-    ...Forms.checkboxText,
+    ...Typography.body1,
     color: Colors.primaryText,
     flex: 1,
     paddingLeft: Spacing.medium,
-    ...Typography.body1,
     fontSize: Typography.large,
   },
 })

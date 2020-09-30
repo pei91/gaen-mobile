@@ -172,7 +172,7 @@ object RealmSecureStorageBte {
                 db.where(CheckIn::class.java)
                     .lessThan("date", fourteenDaysAgo())
                     .findAll()
-                    ?.deleteFromRealm()
+                    ?.deleteAllFromRealm()
             }
         }
     }
@@ -210,7 +210,7 @@ object RealmSecureStorageBte {
                 db.where(SymptomLogEntry::class.java)
                     .lessThan("date", fourteenDaysAgo())
                     .findAll()
-                    ?.deleteFromRealm()
+                    ?.deleteAllFromRealm()
             }
         }
     }

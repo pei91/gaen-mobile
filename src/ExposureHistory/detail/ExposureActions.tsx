@@ -27,6 +27,12 @@ const ExposureActions: FunctionComponent = () => {
     Linking.openURL(healthAuthorityAdviceUrl)
   }
 
+  const handleOnPressPersonalizeMyGuidance = () => {
+    navigation.navigate(Stacks.Modal, {
+      screen: ModalStackScreens.SelfScreener,
+    })
+  }
+
   const displayNextStepsLink =
     !displaySelfScreener && healthAuthorityAdviceUrl !== ""
 
@@ -64,11 +70,7 @@ const ExposureActions: FunctionComponent = () => {
         </View>
         {displaySelfScreener && (
           <Button
-            onPress={() =>
-              navigation.navigate(Stacks.Modal, {
-                screen: ModalStackScreens.SelfScreener,
-              })
-            }
+            onPress={handleOnPressPersonalizeMyGuidance}
             label={t(
               "exposure_history.exposure_detail.personalize_my_guidance",
             )}
@@ -109,7 +111,7 @@ const RequestCallBackActions: FunctionComponent<RequestCallBackActionsProps> = (
   const navigation = useNavigation()
   const { t } = useTranslation()
 
-  const navigateToCallbackForm = () => {
+  const handleOnPressRequestCallback = () => {
     navigation.navigate(Stacks.Callback)
   }
 
@@ -123,7 +125,7 @@ const RequestCallBackActions: FunctionComponent<RequestCallBackActionsProps> = (
       <Button
         customButtonStyle={style.requestCallbackButton}
         customButtonInnerStyle={style.requestCallbackButtonInner}
-        onPress={navigateToCallbackForm}
+        onPress={handleOnPressRequestCallback}
         label={t("exposure_history.exposure_detail.speak_with_contact_tracer")}
         hasRightArrow
       />

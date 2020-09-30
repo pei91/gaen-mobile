@@ -16,14 +16,7 @@ import { GlobalText, Button, GradientBackground } from "../components"
 import { ActivationStackScreens, useStatusBarEffect } from "../navigation"
 import { useConfigurationContext } from "../ConfigurationContext"
 
-import {
-  Forms,
-  Iconography,
-  Colors,
-  Spacing,
-  Outlines,
-  Typography,
-} from "../styles"
+import { Iconography, Colors, Spacing, Outlines, Typography } from "../styles"
 
 const AcceptTermsOfService: FunctionComponent = () => {
   useStatusBarEffect("dark-content", Colors.primaryLightBackground)

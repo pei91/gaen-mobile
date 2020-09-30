@@ -102,7 +102,7 @@ const SelfScreenerIntro: FunctionComponent = () => {
               />
             </View>
             <GlobalText style={style.bulletText}>
-              {t("self_screener.intro.this_is_based_on")}
+              {t("self_screener.intro.if_this_is")}
             </GlobalText>
           </View>
         </View>

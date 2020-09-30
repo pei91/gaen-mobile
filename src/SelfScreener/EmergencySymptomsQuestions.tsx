@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigation } from "@react-navigation/native"
 
 import { SelfScreenerStackScreens, useStatusBarEffect } from "../navigation"
-import { Button, GlobalText, StatusBar } from "../components"
+import { Button, GlobalText } from "../components"
 
 import { EmergencySymptom } from "./selfScreener"
 import { useSelfScreenerContext } from "../SelfScreenerContext"

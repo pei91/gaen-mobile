@@ -36,10 +36,9 @@ const ExposureActions: FunctionComponent = () => {
         {t("exposure_history.exposure_detail.ha_guidance_header")}
       </GlobalText>
       <>
-        {displayCallbackForm ||
-          (true && (
-            <RequestCallBackActions healthAuthorityName={healthAuthorityName} />
-          ))}
+        {displayCallbackForm && (
+          <RequestCallBackActions healthAuthorityName={healthAuthorityName} />
+        )}
         <GlobalText style={style.bottomHeaderText}>
           {t("exposure_history.exposure_detail.general_guidance", {
             healthAuthorityName,
@@ -63,24 +62,23 @@ const ExposureActions: FunctionComponent = () => {
             text={t("exposure_history.exposure_detail.wash_your_hands")}
           />
         </View>
-        {displaySelfScreener ||
-          (true && (
-            <Button
-              onPress={() =>
-                navigation.navigate(Stacks.Modal, {
-                  screen: ModalStackScreens.SelfScreener,
-                })
-              }
-              label={t(
-                "exposure_history.exposure_detail.personalize_my_guidance",
-              )}
-              customButtonStyle={style.personalizeGuidanceButton}
-              customButtonInnerStyle={style.personalizeGuidanceButtonInner}
-              customTextStyle={style.personalizeGuidanceButtonText}
-              hasRightArrow
-              outlined
-            />
-          ))}
+        {displaySelfScreener && (
+          <Button
+            onPress={() =>
+              navigation.navigate(Stacks.Modal, {
+                screen: ModalStackScreens.SelfScreener,
+              })
+            }
+            label={t(
+              "exposure_history.exposure_detail.personalize_my_guidance",
+            )}
+            customButtonStyle={style.personalizeGuidanceButton}
+            customButtonInnerStyle={style.personalizeGuidanceButtonInner}
+            customTextStyle={style.personalizeGuidanceButtonText}
+            hasRightArrow
+            outlined
+          />
+        )}
         {displayNextStepsLink && (
           <View style={style.buttonContainer}>
             <Button
